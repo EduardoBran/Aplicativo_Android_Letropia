@@ -4,4 +4,9 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="teal_500">#009688</color>
+
+    <color name="gradient_start">#E0F7FA</color>   <!-- Azul ciano muito claro -->
+    <color name="gradient_end">#B2EBF2</color>     <!-- Azul ciano claro -->
+
+    <color name="button_start">#9575CD</color>
 </resources>
