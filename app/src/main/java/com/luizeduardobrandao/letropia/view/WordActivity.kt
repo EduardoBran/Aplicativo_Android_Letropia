@@ -7,6 +7,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.luizeduardobrandao.letropia.R
 import com.luizeduardobrandao.letropia.databinding.ActivityWordBinding
+import com.luizeduardobrandao.letropia.helper.BannerAds
 
 class WordActivity : AppCompatActivity() {
 
@@ -24,5 +25,8 @@ class WordActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        // carrega o banner no container da view binding
+        BannerAds.loadBanner(this, binding.frameBanner)
     }
 }
