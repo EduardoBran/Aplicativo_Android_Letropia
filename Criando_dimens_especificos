@@ -1,0 +1,161 @@
+*** Criar o primeiro dimens.xml
+
+1. Criar o arquivo de dimensões
+
+No Android Studio, clique com o direito em res/values → New → Values resource file.
+
+Nomeie como dimens.xml.
+
+Vai ser criado direto em values, só depois dos outros passos abaixo que aparece a pasta dimens.
+
+
+*** Para criar diretório values-land (orientação vertical para celulares)
+
+- Clique com o direito em res → New → Android Resource Directory
+
+- Resource type: values
+
+- Qualifier: clique em +, escolha Orientation → landscape
+
+- O Android Studio vai sugerir values-land como Directory name. Confirme.
+
+- Alterar Visualização do projeto de "Android" para "Project"
+	- Expandir até achar a nova pasta values-land
+	- Criar o arquivo dimens.xml
+
+
+*** Para criar o diretório values-sw600dp (ou qualquer outro qualifier) faça assim:
+
+
+1. No Project view, expanda app/src/main/res.
+
+2. Clique com o botão direito em res → New → Android Resource Directory.
+
+	- Não use “Sample Data Directory”.
+
+3. Na janela que abre:
+
+	- Não alterar "Directory Name", será preenchido automaticamente.
+	
+	- Resource type: escolha values.
+
+	- Em Available qualifiers, selecione Smallest Screen Width e clique em +
+
+	- No campo que aparece, digite 600
+
+	- O Directory name será preenchido automaticamente como values-sw600dp.
+
+4. Clique em OK.
+
+5. Alterar Visualização do projeto de "Android" para "Project"
+	- Expandir até achar a nova pasta values-sw600dp
+	- Criar o arquivo dimens.xml
+
+
+Pronto: você terá a pasta values-sw600dp/.
+
+Dentro dela, crie um arquivo dimens.xml (botão direito → New → Android Resource File, tipo values) e coloque seus ajustes de dimensão para tablets.
+
+
+
+*** Para criar o diretório values-sw600dp-land (ou qualquer outro qualifier) faça assim:
+
+
+1. No Project view, expanda app/src/main/res.
+
+2. Clique com o botão direito em res → New → Android Resource Directory.
+
+	- Não use “Sample Data Directory”.
+
+3. Na janela que abre:
+
+	- Não alterar "Directory Name", será preenchido automaticamente.
+
+	- Resource type: escolha values.
+
+	- Em Available qualifiers, selecione Smallest Screen Width e clique em +
+
+	- No campo que aparece, digite 600
+	
+	- Em Available qualifiers selecione Orientation e clique em +, altere para Landscape
+
+	- O Directory name será preenchido automaticamente como values-sw600dp-land.
+
+4. Clique em OK.
+
+5. Alterar Visualização do projeto de "Android" para "Project"
+	- Expandir até achar a nova pasta values-sw600dp
+	- Criar o arquivo dimens.xml
+	
+
+Pronto: você terá a pasta values-sw600dp-land/.
+
+Dentro dela, crie um arquivo dimens.xml (botão direito → New → Android Resource File, tipo values) e coloque seus ajustes de dimensão para tablets na orientação vertical.
+	
+	
+	
+	
+*** O qualifier sw600dp indica “smallest width ≥ 600 dp”, ou seja:
+
+- Aplica-se a tablets (e a quaisquer dispositivos cuja menor dimensão da tela seja ≥ 600 dp)
+- Não será usado em smartphones comuns (geralmente < 600 dp de largura)
+- Se o aparelho estiver em landscape e ≥ 600 dp, aí entra o values-sw600dp-land
+
+* Em resumo:
+
+- values/ → todos os dispositivos
+- values-sw600dp/ → tablets (portrait e landscape)
+- values-sw600dp-land/ → tablets em landscape específicos
+
+Dessa forma você consegue dar tamanhos e espaçamentos maiores só nos tablets, sem afetar o layout dos smartphones.
+
+
+
+*** Alterando tamanho do texto de MaterialToolbar
+
+1. Adicione os valores nas dimens
+
+Em res/values/dimens.xml (e nos qualifiers que precisar) adicione:
+
+	- <!-- dimens.xml padrão -->
+	- <dimen name="text_size_toolbar">20sp</dimen>
+
+Em res/values-sw600dp/dimens.xml:
+
+
+	- <dimen name="text_size_toolbar">32sp</dimen>
+
+Em res/values-sw600dp-land/dimens.xml:
+
+	- <dimen name="text_size_toolbar">40sp</dimen>
+	
+	
+2. Em res/values/themes.xml adicione:
+
+  <!-- TextAppearance específico para o Toolbar -->
+  <style name="TextAppearance.LayoutResponsivo.Toolbar"
+         parent="TextAppearance.MaterialComponents.Headline6">
+    <item name="android:textSize">@dimen/text_size_toolbar</item>
+  </style>	
+  
+
+3. No seu activity_main.xml, referencie:
+
+app:titleTextAppearance="@style/TextAppearance.LayoutResponsivo.Toolbar"
+
+
+
+*** Layouts por “Buckets” de Tela (Smartphone × Tablet Portrait × Tablet Landscape)
+
+Objetivo: Fornecer variações mínimas do mesmo activity_main.xml para que em tablets (portrait e landscape) seus botões — e todo o layout — não fiquem esticados, mantendo proporções e usabilidade.
+
+1. Crie em res/values um arquivo fractions.xml:
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- define o percentual padrão para smartphones -->
+  <fraction name="button_width_fraction">0.48</fraction>
+</resources>
+
+
+
