@@ -7,7 +7,19 @@
     android:layout_height="match_parent"
     tools:context=".view.MainActivity">
 
-
+    <!-- 1) Toolbar fixa no topo -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar_main"
+        style="@style/Widget.Letropia.Toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/teal_500"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/title_toolbar_main"
+        app:titleTextAppearance="@style/TextAppearance.Letropia.Toolbar.Title"
+        app:titleTextColor="@android:color/white" />
 
 
     <!-- FrameLayout fixo para AdMob -->

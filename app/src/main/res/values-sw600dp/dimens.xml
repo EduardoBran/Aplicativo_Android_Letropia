@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+
+    <!-- Toolbar -->
+    <dimen name="toolbar_title_text_size">28sp</dimen>
+
+</resources>

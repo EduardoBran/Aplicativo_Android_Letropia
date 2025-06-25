@@ -20,6 +20,11 @@ class WordActivity : AppCompatActivity() {
         binding = ActivityWordBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // 1) Configura a Toolbar com botão de voltar
+        setSupportActionBar(binding.toolbarWord)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        binding.toolbarWord.setNavigationOnClickListener { finish() }
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)

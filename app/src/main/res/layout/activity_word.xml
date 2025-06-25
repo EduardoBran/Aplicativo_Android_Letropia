@@ -7,6 +7,22 @@
     android:layout_height="match_parent"
     tools:context=".view.WordActivity">
 
+    <!-- Toolbar com ícone de voltar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar_word"
+        style="@style/Widget.Letropia.Toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/teal_500"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:navigationIconTint="@color/white"
+        app:title="@string/title_toolbar_word"
+        app:titleTextAppearance="@style/TextAppearance.Letropia.Toolbar.Title"
+        app:titleTextColor="@android:color/white" />
+
     <!-- FrameLayout fixo para AdMob -->
     <FrameLayout
         android:id="@+id/frameBanner"

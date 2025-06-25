@@ -6,4 +6,16 @@
     </style>
 
     <style name="Theme.Letropia" parent="Base.Theme.Letropia" />
+
+    <!-- Style do toolbar -->
+    <style name="Widget.Letropia.Toolbar" parent="Widget.MaterialComponents.Toolbar">
+        <!-- texto do titulo tambem via dimens -->
+        <item name="titleTextAppearance">@style/TextAppearance.Letropia.Toolbar.Title</item>
+    </style>
+
+    <!-- TextAppearance para o titulo da toolbar -->
+    <style name="TextAppearance.Letropia.Toolbar.Title"
+        parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">@dimen/toolbar_title_text_size</item>
+    </style>
 </resources>
