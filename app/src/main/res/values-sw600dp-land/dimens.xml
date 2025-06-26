@@ -18,5 +18,33 @@
     <dimen name="padding_spinner_main">34dp</dimen>
     <dimen name="text_size_spinner_main">36sp</dimen>
 
+    <!-- Activity Word -->
+
+    <!-- Palavra embaralhada -->
+    <dimen name="text_size_palavra_embaralhada_word">64sp</dimen>
+    <dimen name="margin_bottom_palavra_embaralhada_word">32dp</dimen>
+
+    <!-- Recycler EditTexts -->
+    <dimen name="margin_horizontal_edittexts_word">16dp</dimen>
+    <dimen name="margin_vertical_edittexts_word">24dp</dimen>
+
+    <dimen name="width_item_letter_word">68dp</dimen>
+    <dimen name="height_item_letter_word">68dp</dimen>
+    <dimen name="margin_vertical_item_letter_word">12dp</dimen>
+    <dimen name="margin_horizontal_item_letter_word">24dp</dimen>
+    <dimen name="text_size_item_letter_word">48sp</dimen>
+
+    <!-- Btn Validar -->
+    <dimen name="padding_vertical_btn_validate_word">20dp</dimen>
+    <dimen name="padding_horizontal_btn_validate_word">50dp</dimen>
+    <dimen name="text_size_btn_validate_word">36sp</dimen>
+
+    <!-- Btn Nova Palavra -->
+    <dimen name="margin_top_btn_nova_palavra_word">22dp</dimen>
+    <dimen name="margin_bottom_btn_nova_palavra_word">26dp</dimen>
+    <dimen name="padding_vertical_btn_nova_palavra_word">20dp</dimen>
+    <dimen name="padding_horizontal_btn_nova_palavra_word">48dp</dimen>
+    <dimen name="text_size_btn_nova_palavra_word">26sp</dimen>
+
 
 </resources>
