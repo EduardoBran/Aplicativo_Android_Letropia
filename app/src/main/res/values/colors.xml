@@ -2,8 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gray">#4E4E4E</color>
+    <color name="gray_light">#F0F8F8</color>
 
     <color name="teal_500">#009688</color>
+    <color name="teal_700">#015D51</color>
 
     <color name="gradient_start">#E0F7FA</color>   <!-- Azul ciano muito claro -->
     <color name="gradient_end">#B2EBF2</color>     <!-- Azul ciano claro -->

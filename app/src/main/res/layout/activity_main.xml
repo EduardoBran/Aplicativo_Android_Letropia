@@ -29,12 +29,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/button_start"
-        android:enabled="false"
-        android:padding="16sp"
+        android:padding="14sp"
         android:text="@string/btn_start"
         android:textSize="24sp"
         app:cornerRadius="12dp"
-        app:layout_constraintBottom_toTopOf="@id/spinnerLetras"
+        app:layout_constraintBottom_toTopOf="@id/textInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar_main"
@@ -42,15 +41,35 @@
         app:strokeWidth="0dp" />
 
     <!-- 3) Spinner de seleção de número de letras -->
-    <Spinner
-        android:id="@+id/spinnerLetras"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:entries="@array/array_letras"
+        android:layout_marginStart="88dp"
+        android:layout_marginEnd="88dp"
+        app:boxBackgroundColor="@color/gray_light"
+        app:boxStrokeColor="@color/teal_700"
+        app:endIconMode="dropdown_menu"
         app:layout_constraintBottom_toTopOf="@id/frameBanner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnIniciar" />
+        app:layout_constraintTop_toBottomOf="@id/btnIniciar">
+
+        <AutoCompleteTextView
+            android:id="@+id/spinnerLetras"
+            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_spinner_letras"
+            android:inputType="none"
+            android:focusable="false"
+            android:clickable="true"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/gray" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 
     <!-- FrameLayout fixo para AdMob -->

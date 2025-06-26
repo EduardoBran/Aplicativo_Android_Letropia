@@ -1,17 +1,24 @@
 package com.luizeduardobrandao.letropia.view
 
+import android.content.Intent
 import android.os.Bundle
+import android.text.InputType
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.luizeduardobrandao.letropia.R
 import com.luizeduardobrandao.letropia.databinding.ActivityMainBinding
 import com.luizeduardobrandao.letropia.helper.BannerAds
+import com.luizeduardobrandao.letropia.view.adapter.SpinnerAdapter
+import com.luizeduardobrandao.letropia.viewmodel.MainViewModel
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private val viewModel:MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +36,62 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        // Prepara a lista de opções vindas do arrays.xml
+        val opcoes = resources.getStringArray(R.array.array_letras).toList()
+
+        setAdapter(opcoes)
+        setObservers()
+        setListeners(opcoes)
+
+
         // carrega o banner no container da view binding
         BannerAds.loadBanner(this, binding.frameBanner)
+    }
+
+    // Configura adapter e comportamento do dropdown
+    private fun setAdapter(opcoes: List<String>) {
+        val adapter = SpinnerAdapter(this, opcoes)
+        binding.spinnerLetras.apply {
+            // threshold 0 -> mostrar dropdown sem digitar
+            threshold = 0
+            setAdapter(adapter)
+
+            // bloqueia edição direta pra evitar disparo de filtro
+            inputType = InputType.TYPE_NULL
+
+            // mostra sempre a lista completa no clique
+            setOnClickListener { showDropDown() }
+
+            // notifica o ViewModel
+            setOnItemClickListener { _, _, position, _ ->
+                viewModel.onItemSelected(position, opcoes[position])
+            }
+        }
+    }
+
+    // Escuta cliques nas opções e repassa ao ViewModel
+    // Trata o clique no botão “Iniciar”
+    private fun setListeners(opcoes: List<String>) {
+
+        // Clicou em Iniciar?
+        binding.btnIniciar.setOnClickListener {
+            val numero = viewModel.selectedNumber.value
+            if (numero == null) {
+                Toast.makeText(
+                    this, "Escolha o número de letras", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            startActivity(
+                Intent(this, WordActivity::class.java)
+                    .putExtra("EXTRA_NUM_LETRAS", numero)
+            )
+        }
+    }
+
+    // Observa o LiveData para habilitar/desabilitar o botão
+    private fun setObservers() {
+        viewModel.isButtonEnabled.observe(this) { enabled ->
+            binding.btnIniciar.alpha = if (enabled) 1f else 0.5f
+        }
     }
 }
