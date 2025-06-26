@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
         setAdapter(opcoes)
         setObservers()
-        setListeners(opcoes)
+        setListeners()
 
 
         // carrega o banner no container da view binding
@@ -62,16 +62,15 @@ class MainActivity : AppCompatActivity() {
             // mostra sempre a lista completa no clique
             setOnClickListener { showDropDown() }
 
-            // notifica o ViewModel
+            // // Escuta cliques nas opções e repassa ao ViewModel
             setOnItemClickListener { _, _, position, _ ->
                 viewModel.onItemSelected(position, opcoes[position])
             }
         }
     }
 
-    // Escuta cliques nas opções e repassa ao ViewModel
     // Trata o clique no botão “Iniciar”
-    private fun setListeners(opcoes: List<String>) {
+    private fun setListeners() {
 
         // Clicou em Iniciar?
         binding.btnIniciar.setOnClickListener {
