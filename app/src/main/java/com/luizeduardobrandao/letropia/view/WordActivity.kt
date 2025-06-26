@@ -29,6 +29,9 @@ class WordActivity : AppCompatActivity() {
     // ViewModel que contém toda a lógica de negócio e estado da palavra
     private val viewModel: WordViewModel by viewModels()
 
+    // guardar a cor original do botão validar
+    private lateinit var defaultBtnValidadeTint: ColorStateList
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -51,7 +54,10 @@ class WordActivity : AppCompatActivity() {
         // Recupera do Intent o tamanho da palavra (número de letras)
         val number = intent.getIntExtra("EXTRA_NUM_LETRAS", 4)
 
-        // Inicializa o RecyclerView e seu adapter
+        // Armazena cor original do background do botão validar
+        defaultBtnValidadeTint = binding.btnValidate.backgroundTintList!!
+
+                // Inicializa o RecyclerView e seu adapter
         setAdapter(number)
         // Configura observadores para LiveData do ViewModel
         setObservers()
@@ -118,7 +124,9 @@ class WordActivity : AppCompatActivity() {
                 Handler(Looper.getMainLooper()).postDelayed({
                     viewModel.onValidationHandled()
                     if (it) viewModel.newWord()          // acerto: nova palavra
-                    else viewModel.resetInput()          // // erro: limpa apenas inputs
+                    else viewModel.resetInput()          // erro: limpa apenas inputs
+                    // restaura cor original do botão após 2s
+                    binding.btnValidate.backgroundTintList = defaultBtnValidadeTint
                 }, 2000)
             }
         }
