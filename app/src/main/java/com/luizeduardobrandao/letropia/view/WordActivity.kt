@@ -4,6 +4,7 @@ import android.content.res.ColorStateList
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.inputmethod.InputMethodManager
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -77,10 +78,12 @@ class WordActivity : AppCompatActivity() {
     // * @param number quantidade de letras para gerar campos.
     private fun setAdapter(number: Int){
 
-        // Cria um LetterAdapter passando callback de mudança de letras
-        adapter = LetterAdapter(number) { letters ->
-            viewModel.onLettersChanged(letters)
-        }
+        // Cria um LetterAdapter passando callback de mudança de letras e esconder teclado
+        adapter = LetterAdapter(
+            number,
+            onLettersChanged = { viewModel.onLettersChanged(it) },
+            onLastLetterEntered = { hideKeyboard() }
+        )
 
         // Aplica configuração de layout horizontal e associa o adapter
         binding.rvLetters.apply {
@@ -141,5 +144,14 @@ class WordActivity : AppCompatActivity() {
         // Botão para forçar nova palavra manualmente
         binding.btnNewWord.setOnClickListener { viewModel.newWord() }
 
+    }
+
+    // Esconde o teclado e tira foco de qualquer view
+    private fun hideKeyboard() {
+        currentFocus?.let { view ->
+            (getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager)
+                .hideSoftInputFromWindow(view.windowToken, 0)
+            view.clearFocus()
+        }
     }
 }

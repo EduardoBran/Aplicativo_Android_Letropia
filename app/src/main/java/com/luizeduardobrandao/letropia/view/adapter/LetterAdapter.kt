@@ -15,11 +15,24 @@ import com.luizeduardobrandao.letropia.R
 // * informando a lista completa de caracteres (pode conter null para campos vazios).
 class LetterAdapter(
     private val length: Int,
-    private val onLettersChanged: (List<Char?>) -> Unit
+    private val onLettersChanged: (List<Char?>) -> Unit,
+    private val onLastLetterEntered: () -> Unit    // callback para fechar teclado
 ): RecyclerView.Adapter<LetterAdapter.LetterVH>() {
 
     // Lista interna que mantém o valor atual de cada letra (null se o campo estiver vazio)
     private val letters = MutableList<Char?>(length) { null }
+
+    private var recyclerView: RecyclerView? = null
+
+    // Sobrescreve para capturar o RecyclerView “de verdade”
+    override fun onAttachedToRecyclerView(rv: RecyclerView) {
+        super.onAttachedToRecyclerView(rv)
+        recyclerView = rv
+    }
+    override fun onDetachedFromRecyclerView(rv: RecyclerView) {
+        super.onDetachedFromRecyclerView(rv)
+        recyclerView = null
+    }
 
     // ViewHolder que encapsula um único EditText para digitação de uma letra.
     inner class LetterVH(private val editText: EditText): RecyclerView.ViewHolder(editText){
@@ -72,11 +85,19 @@ class LetterAdapter(
 
                     // Se digitou exatamente 1 caractere e não estamos no último item,
                     // avança o foco para o próximo EditText
-                    if (s?.length == 1 && pos < length - 1) {
-                        (itemView.parent as RecyclerView)
-                            .findViewHolderForAdapterPosition(pos + 1)
-                            ?.itemView
-                            ?.requestFocus()
+                    if (s?.length == 1) {
+                        if (pos < length - 1) {
+                            // post garante que o próximo ViewHolder já esteja criado
+                            recyclerView?.post {
+                                val vh = recyclerView
+                                    ?.findViewHolderForAdapterPosition(pos + 1)
+                                        as? LetterVH
+                                vh?.editText?.requestFocus()
+                            }
+                        } else {
+                            // último dígito: notifica a Activity para fechar o teclado
+                            onLastLetterEntered()
+                        }
                     }
                 }
             }
