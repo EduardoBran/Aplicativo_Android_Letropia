@@ -4,4 +4,19 @@
     <!-- Toolbar -->
     <dimen name="toolbar_title_text_size">28sp</dimen>
 
+
+    <!-- Activty Main -->
+
+    <!-- btnStart -->
+    <dimen name="padding_vertical_btn_start_main">36dp</dimen>
+    <dimen name="padding_horizontal_start_main">36dp</dimen>
+    <dimen name="text_size_btn_start_main">36sp</dimen>
+
+    <!-- spinner -->
+    <dimen name="margin_horizontal_spinner_main">150dp</dimen>
+    <dimen name="margin_top_spinner_main">24dp</dimen>
+    <dimen name="padding_spinner_main">32dp</dimen>
+    <dimen name="text_size_spinner_main">30sp</dimen>
+
+
 </resources>

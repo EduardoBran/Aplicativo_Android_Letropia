@@ -1,2 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+
+    <!-- Toolbar -->
+    <dimen name="toolbar_title_text_size">28sp</dimen>
+
+
+    <!-- Activty Main -->
+
+    <!-- btnStart -->
+    <dimen name="padding_vertical_btn_start_main">42dp</dimen>
+    <dimen name="padding_horizontal_start_main">50dp</dimen>
+    <dimen name="text_size_btn_start_main">42sp</dimen>
+
+    <!-- spinner -->
+    <dimen name="margin_horizontal_spinner_main">200dp</dimen>
+    <dimen name="margin_top_spinner_main">26dp</dimen>
+    <dimen name="padding_spinner_main">34dp</dimen>
+    <dimen name="text_size_spinner_main">36sp</dimen>
+
+
+</resources>
