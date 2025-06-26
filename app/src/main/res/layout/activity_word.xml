@@ -43,11 +43,11 @@
     <!-- RecyclerView horizontal de N EditText -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvLetters"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnNewWord"
-        app:layout_constraintEnd_toStartOf="@+id/btnValidate"
+        app:layout_constraintBottom_toTopOf="@id/btnValidate"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvScrambled" />
 
@@ -57,13 +57,13 @@
         android:id="@+id/btnValidate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
         android:text="@string/btn_validate"
         app:cornerRadius="8dp"
-        android:layout_margin="8dp"
-        app:layout_constraintTop_toTopOf="@id/rvLetters"
-        app:layout_constraintBottom_toBottomOf="@id/rvLetters"
-        app:layout_constraintStart_toEndOf="@id/rvLetters"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintBottom_toTopOf="@id/btnNewWord"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rvLetters" />
 
 
     <!-- Botão Nova palavra -->
@@ -72,14 +72,14 @@
         style="@style/Widget.MaterialComponents.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btn_new_word"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
+        android:text="@string/btn_new_word"
         app:cornerRadius="8dp"
-        app:layout_constraintTop_toBottomOf="@id/rvLetters"
         app:layout_constraintBottom_toTopOf="@id/frameBanner"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/btnValidate" />
 
 
     <!-- FrameLayout fixo para AdMob -->
