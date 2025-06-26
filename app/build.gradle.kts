@@ -50,4 +50,5 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("com.google.code.gson:gson:2.10.1")
     implementation("com.google.android.gms:play-services-ads:22.1.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
 }

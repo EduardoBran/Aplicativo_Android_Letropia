@@ -19,16 +19,16 @@ class WordRepository(private val context: Context) {
             }
     }
 
-    // Retorna todas as palavras cujo campo number == escolha
-    fun getWordsByNumber(numberWords: Int): List<Word> {
-        return allWords.filter { it.numberWords == numberWords }
+    // Retorna todas as palavras cujo campo numberLetters == escolha em MainActivity
+    fun getWordsByNumber(numberLetters: Int): List<Word> {
+        return allWords.filter { it.number == numberLetters }
     }
 
     // Sorteia uma palavra aleatória do mesmo tamanho,
     // opcionalmente diferente de uma anterior para “nova palavra”.
-    fun getRandomWord(numberWords: Int, exclude: Word? = null): Word{
+    fun getRandomWord(numberLetters: Int, exclude: Word? = null): Word{
         val candidates = allWords.filter {
-            it.numberWords == numberWords && it != exclude
+            it.number == numberLetters && it != exclude
         }
         return candidates.random()
     }

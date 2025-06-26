@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EditText xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/etLetter"
+    android:layout_width="40dp"
+    android:layout_height="48dp"
+    android:layout_margin="4dp"
+    android:background="@drawable/bg_editletter"
+    android:gravity="center"
+    android:inputType="text"
+    android:maxLength="1"
+    android:textAlignment="center"
+    android:textSize="24sp" />
