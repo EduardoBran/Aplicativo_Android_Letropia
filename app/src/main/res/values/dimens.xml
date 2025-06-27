@@ -46,6 +46,7 @@
     <dimen name="margin_bottom_btn_nova_palavra_word">16dp</dimen>
     <dimen name="padding_vertical_btn_nova_palavra_word">10dp</dimen>
     <dimen name="padding_horizontal_btn_nova_palavra_word">22dp</dimen>
+    <dimen name="corner_radius_btn_new_word">12dp</dimen>
     <dimen name="text_size_btn_nova_palavra_word">18sp</dimen>
 
 </resources>

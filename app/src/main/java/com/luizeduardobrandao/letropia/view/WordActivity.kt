@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.luizeduardobrandao.letropia.R
 import com.luizeduardobrandao.letropia.databinding.ActivityWordBinding
 import com.luizeduardobrandao.letropia.helper.BannerAds
+import com.luizeduardobrandao.letropia.helper.GradientAnimatorBtnNewWord
 import com.luizeduardobrandao.letropia.view.adapter.LetterAdapter
 import com.luizeduardobrandao.letropia.viewmodel.WordViewModel
 
@@ -45,6 +46,14 @@ class WordActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbarWord)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         binding.toolbarWord.setNavigationOnClickListener { finish() }
+
+        // Inicia a animação de gradiente no botão
+        GradientAnimatorBtnNewWord.animate(
+            button = binding.btnNewWord,
+            start = R.color.teal_anim_start,
+            end = R.color.teal_anim_end,
+            context = this
+        )
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

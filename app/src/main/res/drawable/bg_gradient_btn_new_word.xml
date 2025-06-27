@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!-- Cantos arredondados iguais ao cornerRadius do seu botão -->
+    <corners android:radius="12dp"/>
+
+    <!-- Gradiente base (inicial) -->
+    <gradient
+        android:angle="0"
+        android:startColor="@color/teal_anim_start"
+        android:endColor="@color/teal_anim_end"
+        android:type="linear"/>
+</shape>

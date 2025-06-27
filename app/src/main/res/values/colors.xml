@@ -14,9 +14,11 @@
     <color name="gradient_start">#E0F7FA</color>   <!-- Azul ciano muito claro -->
     <color name="gradient_end">#B2EBF2</color>     <!-- Azul ciano claro -->
 
-    <color name="button_start">#9575CD</color>
-
     <!-- Gradient Btn Start -->
     <color name="gradient_button_start">#CE93D8</color>
     <color name="gradient_button_end">#4527A0</color>
+
+    <!-- Gradient Btn New Word -->
+    <color name="teal_anim_start">#4DB6AC</color>  <!-- Teal 400: mais claro e vibrante -->
+    <color name="teal_anim_end">  #004D40</color>  <!-- Teal 900: quase preto, máximo contraste -->
 </resources>
