@@ -3,13 +3,14 @@ package com.luizeduardobrandao.letropia.view.adapter
 import android.content.Context
 import android.widget.ArrayAdapter
 import android.widget.Filter
+import com.luizeduardobrandao.letropia.R
 
 class SpinnerAdapter(
     context: Context,
     items: List<String>
 ): ArrayAdapter<String>(
     context,
-    android.R.layout.simple_dropdown_item_1line,
+    R.layout.item_spinner,
     items
 ){
 

@@ -69,8 +69,8 @@
             android:hint="@string/hint_spinner_letras"
             android:inputType="none"
             android:padding="@dimen/padding_spinner_main"
-            android:textColor="@color/black"
-            android:textColorHint="@color/gray"
+            android:textColor="@color/teal_anim_end"
+            android:textColorHint="@color/teal_anim_end"
             android:textSize="@dimen/text_size_spinner_main" />
 
     </com.google.android.material.textfield.TextInputLayout>

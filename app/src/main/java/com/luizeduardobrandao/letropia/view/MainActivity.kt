@@ -59,7 +59,9 @@ class MainActivity : AppCompatActivity() {
 
     // Configura adapter e comportamento do dropdown
     private fun setAdapter(opcoes: List<String>) {
-        val adapter = SpinnerAdapter(this, opcoes)
+        val adapter = SpinnerAdapter(this, opcoes).also {
+            it.setDropDownViewResource(R.layout.item_spinner)
+        }
         binding.spinnerLetras.apply {
             // threshold 0 -> mostrar dropdown sem digitar
             threshold = 0
