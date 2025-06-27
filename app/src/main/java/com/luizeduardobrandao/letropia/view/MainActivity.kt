@@ -12,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.luizeduardobrandao.letropia.R
 import com.luizeduardobrandao.letropia.databinding.ActivityMainBinding
 import com.luizeduardobrandao.letropia.helper.BannerAds
+import com.luizeduardobrandao.letropia.helper.GradientAnimator
 import com.luizeduardobrandao.letropia.view.adapter.SpinnerAdapter
 import com.luizeduardobrandao.letropia.viewmodel.MainViewModel
 
@@ -29,6 +30,14 @@ class MainActivity : AppCompatActivity() {
 
         // Configura a Toolbar (binding.toolbarMain) como ActionBar da Activity
         setSupportActionBar(binding.toolbarMain)
+
+        // Inicia a animação de gradiente no botão
+        GradientAnimator.animate(
+            button = binding.btnIniciar,
+            start = R.color.gradient_button_start,
+            end = R.color.gradient_button_end,
+            context = this
+        )
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

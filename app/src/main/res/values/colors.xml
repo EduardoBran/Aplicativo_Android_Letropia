@@ -15,4 +15,8 @@
     <color name="gradient_end">#B2EBF2</color>     <!-- Azul ciano claro -->
 
     <color name="button_start">#9575CD</color>
+
+    <!-- Gradient Btn Start -->
+    <color name="gradient_button_start">#CE93D8</color>
+    <color name="gradient_button_end">#4527A0</color>
 </resources>

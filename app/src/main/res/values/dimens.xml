@@ -10,6 +10,7 @@
     <!-- btnStart -->
     <dimen name="padding_vertical_btn_start_main">14dp</dimen>
     <dimen name="padding_horizontal_start_main">14dp</dimen>
+    <dimen name="corner_radius_btn_start_main">12dp</dimen>
     <dimen name="text_size_btn_start_main">24sp</dimen>
 
     <!-- spinner -->
