@@ -114,11 +114,6 @@ class WordActivity : AppCompatActivity() {
             binding.tvScrambled.text = scrambled
         }
 
-        // Quando a lista de letras muda, atualiza o adapter para mostrar no RecyclerView
-//        viewModel.letters.observe(this) { list->
-//            adapter.setLetters(list)
-//        }
-
         // Habilita ou desabilita o botão de validação conforme estado
         viewModel.isValidateEnabled.observe(this) { enabled ->
             binding.btnValidate.isEnabled = enabled

@@ -11,8 +11,10 @@
     <color name="teal_500">#009688</color>
     <color name="teal_700">#015D51</color>
 
-    <color name="gradient_start">#E0F7FA</color>   <!-- Azul ciano muito claro -->
-    <color name="gradient_end">#C7F3FA</color>     <!-- Azul ciano claro -->
+    <!-- Background App -->
+    <color name="blue50">#E3F2FD</color>
+    <color name="blue200">#90CAF9</color>
+    <color name="white_translucent">#80FFFFFF</color>
 
     <!-- Gradient Btn Start -->
     <color name="gradient_button_start">#CE93D8</color>
