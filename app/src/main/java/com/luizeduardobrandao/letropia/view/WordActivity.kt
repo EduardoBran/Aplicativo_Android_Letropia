@@ -115,9 +115,9 @@ class WordActivity : AppCompatActivity() {
         }
 
         // Quando a lista de letras muda, atualiza o adapter para mostrar no RecyclerView
-        viewModel.letters.observe(this) { list->
-            adapter.setLetters(list)
-        }
+//        viewModel.letters.observe(this) { list->
+//            adapter.setLetters(list)
+//        }
 
         // Habilita ou desabilita o botão de validação conforme estado
         viewModel.isValidateEnabled.observe(this) { enabled ->
@@ -137,6 +137,10 @@ class WordActivity : AppCompatActivity() {
                     viewModel.onValidationHandled()
                     if (it) viewModel.newWord()          // acerto: nova palavra
                     else viewModel.resetInput()          // erro: limpa apenas inputs
+
+                    // **LIMPA a UI** de uma vez só, mantendo o foco no campo atual ao digitar “×”
+                    adapter.setLetters()
+
                     // restaura cor original do botão após 2s
                     binding.btnValidate.backgroundTintList = defaultBtnValidadeTint
                 }, 2000)

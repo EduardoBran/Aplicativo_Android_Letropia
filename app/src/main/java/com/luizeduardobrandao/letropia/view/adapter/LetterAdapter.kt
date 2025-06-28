@@ -127,10 +127,12 @@ class LetterAdapter(
     // Limpa todas as letras de todos os campos:
     //   - Reseta a lista interna para nulls
     //   - Notifica o RecyclerView para atualizar todos os itens
-    fun setLetters(newLetters: List<Char?>) {
+    fun setLetters() {
+        // Zera o estado interno
         for (i in letters.indices) {
-            letters[i] = newLetters.getOrNull(i)
+            letters[i] = null
         }
+        // Notifica o RecyclerView pra redesenhar tudo vazio
         notifyDataSetChanged()
     }
 }
